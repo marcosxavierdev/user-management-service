@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @RequestMapping("/user-management-service")
-public class UserManagementService {
+public class UserManagementServiceController {
 
     @GetMapping("/health")
     public ResponseEntity<String> getHealth() {
