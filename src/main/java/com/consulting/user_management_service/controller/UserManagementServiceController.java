@@ -15,4 +15,6 @@ public class UserManagementServiceController {
     public ResponseEntity<String> getHealth() {
         return ResponseEntity.ok("user-management-service UP!");
     }
+
+
 }
