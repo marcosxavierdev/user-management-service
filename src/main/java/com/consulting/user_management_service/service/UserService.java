@@ -17,18 +17,19 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public UserValidationResponseDTO validateUser (UserValidationRequestDTO userValidationRequestDTO){
+    public UserValidationResponseDTO validateUser(UserValidationRequestDTO userValidationRequestDTO){
         Optional<User> userOptional = userRepository.findByUsername(userValidationRequestDTO.getUsername());
         if(userOptional.isPresent()){
             User user = userOptional.get();
             return new UserValidationResponseDTO(user.getPassword().equals(userValidationRequestDTO.getPassword()));
-        } else {
+        }
+        else{
             return new UserValidationResponseDTO(false);
         }
     }
 
     public void createUser(UserRequestVO userRequestVO){
-        User user = UserMapper.INSTANCE.userRequestVOToUser(userRequestVO);
+        User user = UserMapper.INSTANCE.userRequestVOtoUser(userRequestVO);
         userRepository.save(user);
     }
 }

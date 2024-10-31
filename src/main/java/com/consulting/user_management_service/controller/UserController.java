@@ -20,13 +20,13 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<?> createUser (@RequestBody UserRequestVO userRequestVO){
+    public ResponseEntity<?> createUser(@RequestBody UserRequestVO userRequestVO){
         userService.createUser(userRequestVO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/validate")
-    public ResponseEntity<UserValidationResponseDTO> validateUser (@RequestBody UserValidationRequestDTO userValidationRequestDTO){
+    public ResponseEntity<UserValidationResponseDTO> validateUser(@RequestBody UserValidationRequestDTO userValidationRequestDTO){
         return ResponseEntity.ok(userService.validateUser(userValidationRequestDTO));
     }
 }
